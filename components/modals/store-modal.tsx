@@ -16,6 +16,7 @@ import {
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 import axios from "axios";
 
 const formSchema = z.object({
@@ -41,9 +42,10 @@ export const StoreModal = () => {
       setLoading(true);
 
       const response = await axios.post("/api/stores", values);
-      console.log(response.data);
+
+      toast.success("NAJS! \n\nProdukt-type oprettet :D");
     } catch (error) {
-      console.log(error);
+      toast.error("Noget lort skete! - Prøv lige igen");
     } finally {
       setLoading(false);
     }
