@@ -1,10 +1,14 @@
 "use client";
 
+import { useState } from "react";
+import { toast } from "react-hot-toast";
+import axios from "axios";
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+
 import { useStoreModal } from ":/hooks/use-store-modal";
 import { Modal } from ":/components/ui/modal";
-import * as z from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
   FormControl,
@@ -13,11 +17,9 @@ import {
   FormLabel,
   FormMessage,
 } from ":/components/ui/form";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
-import { useState } from "react";
-import { toast } from "react-hot-toast";
-import axios from "axios";
+import { Input } from ":/components/ui/input";
+import { Button } from ":/components/ui/button";
+// import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   name: z.string().min(3, {
@@ -27,8 +29,10 @@ const formSchema = z.object({
 
 export const StoreModal = () => {
   const storeModal = useStoreModal();
+  // const router = useRouter();
 
   const [loading, setLoading] = useState(false);
+  // const [responseRoute, setResponseRoute] = useState();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -42,8 +46,9 @@ export const StoreModal = () => {
       setLoading(true);
 
       const response = await axios.post("/api/stores", values);
-
-      toast.success("NAJS! \n\nProdukt-type oprettet :D");
+      // setResponseRoute(response.data.id);
+      // router.push(`/${response.data.id}`);
+      window.location.assign(`/${response.data.id}`);
     } catch (error) {
       toast.error("Noget lort skete! - Prøv lige igen");
     } finally {
