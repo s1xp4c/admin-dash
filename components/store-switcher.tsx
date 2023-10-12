@@ -1,8 +1,8 @@
 "use client";
 
+//non-relatives
 import { useParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { Store } from "@prisma/client";
+import { useState } from "react";
 import {
   Check,
   ChevronsUpDown,
@@ -10,6 +10,8 @@ import {
   Store as StoreIcon,
 } from "lucide-react";
 
+//relatives
+import { Store } from "@prisma/client";
 import {
   Popover,
   PopoverTrigger,

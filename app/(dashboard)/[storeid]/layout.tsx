@@ -1,6 +1,8 @@
+//non-relatives
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
+//non-relatives
 import Navbar from ":/components/navbar";
 import prismadb from ":/lib/prismadb";
 

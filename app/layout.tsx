@@ -1,8 +1,10 @@
-import "./globals.css";
+//non-relatives
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 
+//relatives
+import "./globals.css";
 import { ModalProvider } from ":/providers/modal-provider";
 import { ToasterProvider } from ":/providers/toast-provider";
 

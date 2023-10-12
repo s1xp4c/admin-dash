@@ -1,3 +1,4 @@
+//relatives
 import prismadb from ":/lib/prismadb";
 
 interface DashboardPageProps {

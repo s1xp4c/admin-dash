@@ -1,3 +1,4 @@
+//non-relatives
 import { PrismaClient } from "@prisma/client";
 
 declare global {

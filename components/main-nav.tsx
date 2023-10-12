@@ -1,8 +1,11 @@
 "use client";
 
-import { cn } from ":/lib/utils";
+//non-relatives
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
+
+//relatives
+import { cn } from ":/lib/utils";
 
 export function MainNav({
   className,
